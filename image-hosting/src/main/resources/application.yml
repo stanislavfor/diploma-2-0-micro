@@ -1,0 +1,62 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: diploma-2-0
+  datasource:
+    url: jdbc:postgresql://localhost:5432/images_db
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  thymeleaf:
+    cache: false
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  web:
+    resources:
+      chain:
+        strategy:
+          content:
+            enabled: true
+
+upload:
+  path: target/uploads/images
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+
+
+  devtools:
+    restart:
+      enabled: true   # Включает автоматическую перезагрузку при изменении файлов
+      additional-paths:
+        - target/uploads/images
+      #        - src/main/resources/static/images
+      #        - src/main/resources/templates
+      #        - uploads
+      exclude:
+        - static/**
+    #        - src/main/resources/static/images
+    #        - src/main/resources/templates
+    #        - uploads
+    livereload:
+      enabled: true   # Включает LiveReload для автоматической перезагрузки страницы в браузере
+

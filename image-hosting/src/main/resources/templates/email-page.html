@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images Hosting</title>
+    <link rel="icon" th:href="@{/favicon.ico}" sizes="any" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+
+            background-color: #cccccc;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1000px;
+            background-color: #cccccc;
+
+        }
+
+        .form-block,
+        .text-block {
+            flex: 1;
+            flex-basis: 50%;
+            display: block;
+            min-width: 375px;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 5px solid #cccccc;
+        }
+
+        .form-block {
+            background-color: #f5f5f5;
+        }
+
+        .text-block {
+            /*background-color: #e0e0e0;*/
+            background-color: #ffffff;
+        }
+
+        .form-block label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-block input,
+        .form-block textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc;
+            box-sizing: border-box;
+        }
+
+        .email-button {
+            padding: 10px 20px;
+            background-color: #BFFF7E;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.6s ease, box-shadow 0.3s ease;
+        }
+
+        .email-button:hover {
+            background-color: #0056b3;
+            color: #ffffff;
+        }
+
+        .email-button:active {
+            background-color: #007BFF;
+            color: #ffffff;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text-block">
+            <h2>Здравствуйте!</h2>
+            <br>
+            <p>Наш Хостинг изображений предлагает удобные тарифы и сервисы для работы с файлами изображений.</p>
+            <p>Мы хотели бы узнать, какой тариф хостинга изображений вас интересует. Пожалуйста, отправьте нам сообщение, и
+                мы вышлем вам подробный список услуг и тарифов.</p>
+            <p>Если у вас вопросы по работе сервиса или вы имеете рекомендацию, предложение по развитию Хостинга,
+                пожалуйста, оставьте свои контактные данные, мы свяжемся с вами указанным способом для уточнения
+                вопросов.</p>
+            <h3>Спасибо за проявленный интерес!</h3>
+            <form action="../#tariffs" target="_self" style="margin-top: 5px;">
+                <button class="email-button">на Главную</button>
+            </form>
+
+        </div>
+        <div class="form-block">
+            <h2>Отправьте сообщение</h2>
+            <form action="/sendEmail" method="post">
+                <label for="username">Ваше Имя:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Ваше сообщение:</label>
+                <textarea id="message" name="message" rows="7" required></textarea>
+
+                <button type="reset" class="email-button">Reset</button>
+                <button type="submit" class="email-button">Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

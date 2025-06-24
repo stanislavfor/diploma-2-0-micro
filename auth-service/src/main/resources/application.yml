@@ -1,0 +1,30 @@
+server:
+  port: 8081
+
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/keycloak_db
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+
+keycloak:
+  realm: diploma-realm
+  auth-server-url: http://localhost:8080/
+  resource: diploma-app
+  public-client: true
+  credentials:
+    secret: your-client-secret
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    thymeleaf:
+      cache: false
+
+app:
+  redirect-url: http://localhost:8084/
