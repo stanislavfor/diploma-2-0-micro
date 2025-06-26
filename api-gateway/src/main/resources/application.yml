@@ -5,12 +5,30 @@ spring:
   application:
     name: api-gateway
 
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: gateway-client
+            client-secret: secret
+            scope: openid
+            provider: keycloak
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/diploma-realm
+            authorization-uri: http://localhost:8080/realms/diploma-realm/protocol/openid-connect/auth
+            token-uri: http://localhost:8080/realms/diploma-realm/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/diploma-realm/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username
+
   cloud:
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
       routes:
-        # Auth Service
         - id: auth-service
           uri: http://localhost:8081
           predicates:
@@ -18,26 +36,16 @@ spring:
           filters:
             - StripPrefix=2
 
-        # Frontend (отображение HTML страниц)
-        - id: frontend
+        - id: frontend-service
           uri: http://localhost:8082
           predicates:
-            - Path=/login
-            - Path=/registration
-            - Path=/email-page
-            - Path=/oops
-            - Path=/index.html
-            - Path=/
+            - Path=/api/frontend/**
+          filters:
+            - StripPrefix=2
 
-        # Image Hosting
         - id: image-hosting
           uri: http://localhost:8084
           predicates:
             - Path=/api/images/**
           filters:
             - StripPrefix=2
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://localhost:8080/realms/diploma-realm

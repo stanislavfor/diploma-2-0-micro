@@ -19,6 +19,7 @@ spring:
   thymeleaf:
     cache: false
 
+# Настройки Keycloak (если используется)
 keycloak:
   realm: diploma-realm
   auth-server-url: http://localhost:8081/
@@ -27,11 +28,10 @@ keycloak:
   password: admin
   resource: auth-service
   public-client: true
-  credentials:
-    secret: your-client-secret
   bearer-only: false
   ssl-required: none
   use-resource-role-mappings: true
 
+# URL для перенаправления после успешной авторизации
 app:
-  redirect-url: http://localhost:8084/
+  redirect-url: http://localhost:8090/

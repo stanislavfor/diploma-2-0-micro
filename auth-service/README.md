@@ -1,4 +1,4 @@
-# Микросервис auth-service - это Spring Boot-приложение
+# Микросервис auth-service
 ## Запуск для микросервиса auth-service
 
 - Через IDE, где нажать Run в главном классе `AuthServiceApplication`
@@ -15,13 +15,21 @@
     ```bash    
     mvn spring-boot:run
     ```
-После запуска сервис будет доступен по адресу (если в application.yml указан server.port: 8081): <br>
+- После запуска сервис будет доступен по адресу (если в application.yml указан server.port: 8081): <br>
 http://localhost:8090/
 
+- Команда для проверки всех портов задействованых в проекте:
+```bash
+  netstat -ano | findstr ":8090" ":8081" ":8082" ":8084"
+  ```
 
+Команда остановить запущенный микросервис:
+  ```bash
+   Stop-Process -Id (Get-NetTCPConnection -LocalPort 8081).OwningProcess -Force
+  ```
 ##
 ### Работа с сервисом Keycloak
-
+Keycloak - это сервер авторизации, который работает с Spring Security + MVC (Servlet API).
 Важно, чтобы микросервисы используют одинаковую конфигурацию Keycloak (Realm, Client).
 
 1. В Keycloak -> Client diploma-app:

@@ -1,14 +1,17 @@
 server:
-  port: 8082  # Порт для frontend-service
+  port: 8082
 
 spring:
+  application:
+    name: frontend-service
+
   thymeleaf:
     enabled: true
     prefix: classpath:/templates/
     suffix: .html
     mode: HTML
     encoding: UTF-8
-    cache: false  # Отключение кеша шаблонов при разработке
+    cache: false
 
   mvc:
     static-path-pattern: /static/**
@@ -24,5 +27,5 @@ logging:
     org.springframework: info
 
 app:
-  title: "frontend-service - Gateway for Image Hosting"
+  title: "Frontend - Image Hosting UI"
   version: "1.0"

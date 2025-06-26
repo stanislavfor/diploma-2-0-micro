@@ -1,4 +1,5 @@
-## Запуск модуля image-hosting
+# Микросервис image-hosting
+## Запуск для модуля image-hosting
 
 1. Выполнить в корне модуля image-hosting:
 
@@ -16,6 +17,14 @@
 
 3. Перейти в браузере по адресу: http://localhost:8090/
 
+Команда для проверки всех портов задействованых в проекте:
+```bash
+    netstat -ano | findstr ":8090" ":8081" ":8082" ":8084"
+ ```
+Команда остановить запущенный микросервис:
+   ```bash
+    Stop-Process -Id (Get-NetTCPConnection -LocalPort 8084).OwningProcess -Force
+   ```
 ##
 #### Страница авторизации (login.html):
 

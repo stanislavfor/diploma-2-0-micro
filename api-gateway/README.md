@@ -22,12 +22,17 @@
   mvn spring-boot:run
   ```
 - Работает запущеное приложение на адресе:
-     http://localhost:8090/ <br><br>
+  http://localhost:8090/ <br><br>
 
-- Команда остановить запущенный микросервис:
+
+
+Команда для проверки всех портов задействованых в проекте:
+```bash
+  netstat -ano | findstr ":8090" ":8081" ":8082" ":8084"
+  ```
+Команда остановить запущенный микросервис:
   ```bash
    Stop-Process -Id (Get-NetTCPConnection -LocalPort 8090).OwningProcess -Force
-
   ```
 
 ## `login.html` (авторизация пользователя)

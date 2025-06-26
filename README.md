@@ -1,4 +1,10 @@
 ## Главная страница http://localhost:8090/
+## Страницы запускаемые в браузере работающих сервисов (URL	- Назначение)
+	
+http://localhost:8090/ Главная страница (image-hosting) <br>
+http://localhost:8090/login	Форма входа (auth-service) <br>
+http://localhost:8090/registration Регистрация (auth-service) <br>
+http://localhost:8090/email-page Email форма (image-hosting) <br>
 
 ##
 #### Очистка проекта для пересборки и сборка проекта:
@@ -102,3 +108,13 @@
 - Удаление изображения	http://localhost:8080/api/images/delete
 - Запрос авторизации	http://localhost:8080/api/auth/login
 - Регистрация пользователя	http://localhost:8080/api/auth/registration
+
+##
+#### Порты для микросервисов:
+auth-service: 8081
+
+frontend-service: 8082
+
+image-hosting: 8084
+
+api-gateway: 8090
