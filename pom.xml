@@ -28,7 +28,7 @@
     </scm>
     <modules>
         <module>api-gateway</module>
-        <module>auth-service</module>
+<!--        <module>auth-service</module>-->
         <module>frontend-service</module>
         <module>image-hosting</module>
     </modules>
@@ -100,6 +100,13 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-client</artifactId>
+            <version>3.2.11</version>
         </dependency>
 
 
