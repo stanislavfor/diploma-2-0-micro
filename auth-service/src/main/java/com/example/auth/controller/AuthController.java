@@ -38,4 +38,10 @@ public class AuthController {
     public String oops() {
         return "oops";
     }
+
+    @GetMapping("/email-page")
+    public String showEmailPage() {
+        return "email-page"; // шаблон в templates/email-page.html
+    }
+
 }

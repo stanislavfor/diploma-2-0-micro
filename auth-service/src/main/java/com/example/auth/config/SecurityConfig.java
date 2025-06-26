@@ -27,7 +27,8 @@ public class SecurityConfig {
                                 "/oops",
                                 "/css/**",
                                 "/js/**",
-                                "/email-page"
+                                "/email-page",
+                                "/sendEmail"
                         ).permitAll()
 
                         // Админ-панель (зарезервировано)

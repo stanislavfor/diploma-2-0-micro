@@ -5,9 +5,16 @@
     ```bash
     mvn clean install
     ```
-2. Запустить ImageHostingApplication.
+   или
+    ```bash
+    mvn clean 
+    ```
+2. Запустить 'ImageHostingApplication' или выбрать команду:
+   ```bash
+    mvn spring-boot:run
+   ```
 
-3. Перейти в браузере по адресу: http://localhost:8084
+3. Перейти в браузере по адресу: http://localhost:8090/
 
 ##
 #### Страница авторизации (login.html):
@@ -15,7 +22,7 @@
 Это страница, на которой пользователи могут ввести свои логин и пароль для входа в систему.
 
 ## Главная страница:
-### URL: http://localhost:8084/
+### URL: http://localhost:8090/
 
 ##
 #### Настройки для файла application.yml

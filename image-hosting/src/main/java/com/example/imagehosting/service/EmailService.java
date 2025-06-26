@@ -3,6 +3,7 @@ package com.example.imagehosting.service;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -18,6 +19,9 @@ public class EmailService {
     public void saveEmail(String username, String email, String message) throws IOException {
         LocalDateTime now = LocalDateTime.now();
         String formattedDate = now.format(FORMATTER);
+
+        File file = new File(FILE_PATH);
+        file.getParentFile().mkdirs();
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH, true))) {
             writer.write("Date: " + formattedDate);

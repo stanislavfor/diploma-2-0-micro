@@ -1,3 +1,4 @@
+<!--email-page.html-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,14 +98,18 @@
                 пожалуйста, оставьте свои контактные данные, мы свяжемся с вами указанным способом для уточнения
                 вопросов.</p>
             <h3>Спасибо за проявленный интерес!</h3>
-            <form action="../#tariffs" target="_self" style="margin-top: 5px;">
-                <button class="email-button">на Главную</button>
-            </form>
-
+<!--            <form action="../../../../../auth-service/src/main/resources#tariffs" target="_self" style="margin-top: 5px;">-->
+<!--            <form action="/api/frontend/#tariffs" target="_self" style="margin-top: 5px;">-->
+<!--                <button class="email-button">на Главную</button>-->
+<!--            </form>-->
+            <a href="http://localhost:8090/#tariffs">
+                <button type="button" class="email-button">На Главную</button>
+            </a>
         </div>
         <div class="form-block">
             <h2>Отправьте сообщение</h2>
             <form action="/sendEmail" method="post">
+<!--            <form th:action="@{/api/images/sendEmail}" method="post">-->
                 <label for="username">Ваше Имя:</label>
                 <input type="text" id="username" name="username" required>
 

@@ -1,18 +1,22 @@
 # Микросервис auth-service - это Spring Boot-приложение
 ## Запуск для микросервиса auth-service
 
-- Через IDE, где нажать Run в главном классе AuthServiceApplication
+- Через IDE, где нажать Run в главном классе `AuthServiceApplication`
 - Через терминал:
   - Перейти в корневую папку микросервиса:
     ```bash
     cd auth-service
     ```
-  - выполнить команду запуска:
+- Выполнить очистку проекта по команде:
+  ```bash
+    mvn clean
+  ```
+  - Выполнить команду запуска:
     ```bash    
     mvn spring-boot:run
     ```
 После запуска сервис будет доступен по адресу (если в application.yml указан server.port: 8081): <br>
-http://localhost:8081/login
+http://localhost:8090/
 
 
 ##
@@ -146,3 +150,8 @@ public class AuthController {
 - Пользователь логинится через auth-service, после логина перенаправляется на http://localhost:8084/ (image-hosting).
 - Для передачи авторизации в image-hosting-service используется сессия или токен доступа (если REST API)
 - Можно добавить Spring Cloud Gateway или OAuth2 Resource Server.
+
+Для поиска ошибок можно использовать команду:
+  ```bash
+    mvn spring-boot:run -X
+  ```

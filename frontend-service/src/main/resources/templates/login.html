@@ -1,3 +1,4 @@
+<!--login.html-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
@@ -5,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Images Hosting</title>
-    <link rel="icon" th:href="@{/favicon.ico}" sizes="any" type="image/x-icon">
+    <link rel="icon" th:href="@{src/main/resources/static/favicon.ico}" sizes="any" type="image/x-icon">
     <style>
         body {
             margin: 0;
@@ -591,7 +592,8 @@
                 <div class="container-wrap">
                     <div class="container-form">
                         <div class="container-wrapper_auth">
-                            <form class="form_auth" method="post" th:action="@{/login}">
+<!--                            <form class="form_auth" method="post" th:action="@{/api/auth/login}">-->
+                            <form class="form_auth" method="post" action="http://localhost:8085/auth/login">
                                 <h2 class="form-title_auth">Авторизация</h2>
                                 
 <!--                                <p class="form-description_auth">укажите данные пользователя</p>-->
@@ -605,7 +607,11 @@
                                 <button class="form-button-submit_auth" type="submit">sign in *</button>
                                 <p class="form-description_auth">* войти в систему</p>
                             </form>
-                            <button class="form-button-submit_auth" type="submit">зарегистрироваться</button>
+<!--                            <form th:action="@{/api/auth/registration}" method="get">-->
+                            <form th:action="@{'http://localhost:8090/registration'}" method="get">
+                                <button class="form-button-submit_auth" type="submit">зарегистрироваться</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>

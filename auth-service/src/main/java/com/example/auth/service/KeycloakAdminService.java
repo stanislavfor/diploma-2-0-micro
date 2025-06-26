@@ -20,7 +20,11 @@ public class KeycloakAdminService {
         user.setRealmRoles(Collections.singletonList("USER"));
 
         Response resp = keycloak.realm("diploma-realm").users().create(user);
-        if (resp.getStatus() != 201) return false;
+        if (resp.getStatus() != 201) {
+            System.out.println("Keycloak user creation failed: " + resp.getStatus() + " - " + resp.readEntity(String.class));
+            return false;
+        }
+
 
         String id = getCreatedId(resp);
         CredentialRepresentation cred = new CredentialRepresentation();

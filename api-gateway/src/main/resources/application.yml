@@ -1,0 +1,43 @@
+server:
+  port: 8090
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        # Auth Service
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=2
+
+        # Frontend (отображение HTML страниц)
+        - id: frontend
+          uri: http://localhost:8082
+          predicates:
+            - Path=/login
+            - Path=/registration
+            - Path=/email-page
+            - Path=/oops
+            - Path=/index.html
+            - Path=/
+
+        # Image Hosting
+        - id: image-hosting
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/images/**
+          filters:
+            - StripPrefix=2
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/diploma-realm

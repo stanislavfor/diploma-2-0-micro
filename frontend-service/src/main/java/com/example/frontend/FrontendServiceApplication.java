@@ -1,4 +1,4 @@
-package com.example.imagehosting;
+package com.example.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class
         })
 
-public class ImageHostingApplication {
+public class FrontendServiceApplication {
     public static void main(String[] args) {
 
-        SpringApplication.run(ImageHostingApplication.class, args);
+        SpringApplication.run(FrontendServiceApplication.class, args);
     }
 
 }

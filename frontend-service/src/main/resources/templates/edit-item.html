@@ -1,3 +1,4 @@
+<!--edit-item.html-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
@@ -434,7 +435,9 @@
 <body>
     <div class="header"></div>
     <h2>Edit Image</h2>
-    <form class="input" th:action="@{/images/edit/{id}(id=${item.id})}" method="post"><img src="https://i.ibb.co/YpkXDjH/img-200x200.jpg" th:src="${item.link}" alt="image">
+<!--    <form class="input" th:action="@{/images/edit/{id}(id=${item.id})}" method="post">-->
+    <form class="input" th:action="'http://localhost:8085/images/edit/' + ${item.id}" method="post">
+        <img src="https://i.ibb.co/YpkXDjH/img-200x200.jpg" th:src="${item.link}" alt="image">
         <div style="display: flex; justify-content: flex-start;">
             <p>ID: </p>
             <p td th:text="${item.id}">10</p>
