@@ -1,7 +1,6 @@
 # Приложение Java Spring Boot с микросервисами
-## Главная страница http://localhost:8090/
-## Страницы запускаемые в браузере работающих сервисов (URL	- Назначение)
-	
+## Страницы в браузере для работы сервисов (URL	- Назначение)
+### Главная страница http://localhost:8090/
 http://localhost:8090/ Главная страница (image-hosting) <br>
 http://localhost:8090/login	Форма входа (auth-service) <br>
 http://localhost:8090/registration Регистрация (auth-service) <br>
